@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Fantasy Light Theme */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 98%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Neon Purple Primary */
+    --primary: 265 89% 68%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Deep Purple Secondary */
+    --secondary: 265 40% 85%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 220 15% 95%;
+    --muted-foreground: 215 20% 45%;
+
+    /* Emerald Accent */
+    --accent: 160 84% 39%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 265 89% 68%;
+
+    --radius: 0.75rem;
+
+    /* Custom Fantasy Colors */
+    --gold: 45 93% 47%;
+    --gold-light: 45 93% 65%;
+    --gold-dark: 45 93% 35%;
+    
+    --neon-purple: 265 89% 68%;
+    --neon-purple-glow: 265 100% 75%;
+    
+    --emerald: 160 84% 39%;
+    --emerald-glow: 160 100% 50%;
+
+    --navy-deep: 222 47% 5%;
+    --navy: 222 47% 11%;
+    --navy-light: 222 40% 18%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(265 89% 68%), hsl(280 80% 55%));
+    --gradient-gold: linear-gradient(135deg, hsl(45 93% 47%), hsl(35 90% 55%));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(220 15% 95%));
+    --gradient-hero: linear-gradient(180deg, transparent, hsl(0 0% 100% / 0.9));
+
+    /* Shadows */
+    --shadow-glow-purple: 0 0 30px hsl(265 89% 68% / 0.3);
+    --shadow-glow-gold: 0 0 20px hsl(45 93% 47% / 0.3);
+    --shadow-glow-emerald: 0 0 20px hsl(160 84% 39% / 0.3);
+    --shadow-card: 0 10px 40px hsl(222 47% 5% / 0.1);
+    --shadow-card-hover: 0 20px 50px hsl(265 89% 68% / 0.15);
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 265 89% 68%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 15% 95%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 265 89% 68%;
+  }
+
+  .dark {
+    /* Fantasy Dark Theme */
+    --background: 222 47% 7%;
+    --foreground: 210 40% 96%;
+
+    --card: 222 47% 10%;
+    --card-foreground: 210 40% 96%;
+
+    --popover: 222 47% 9%;
+    --popover-foreground: 210 40% 96%;
+
+    /* Neon Purple Primary */
+    --primary: 265 89% 68%;
+    --primary-foreground: 222 47% 7%;
+
+    /* Deep Purple Secondary */
+    --secondary: 265 40% 20%;
+    --secondary-foreground: 210 40% 96%;
+
+    --muted: 222 30% 15%;
+    --muted-foreground: 215 20% 55%;
+
+    /* Emerald Accent */
+    --accent: 160 84% 39%;
+    --accent-foreground: 222 47% 7%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 30% 18%;
+    --input: 222 30% 18%;
+    --ring: 265 89% 68%;
+
+    /* Gradients */
+    --gradient-card: linear-gradient(180deg, hsl(222 47% 12%), hsl(222 47% 8%));
+    --gradient-hero: linear-gradient(180deg, transparent, hsl(222 47% 5% / 0.9));
+
+    /* Shadows */
+    --shadow-glow-purple: 0 0 30px hsl(265 89% 68% / 0.4);
+    --shadow-glow-gold: 0 0 20px hsl(45 93% 47% / 0.4);
+    --shadow-glow-emerald: 0 0 20px hsl(160 84% 39% / 0.4);
+    --shadow-card: 0 10px 40px hsl(222 47% 5% / 0.5);
+    --shadow-card-hover: 0 20px 50px hsl(265 89% 68% / 0.2);
+
+    /* Sidebar */
+    --sidebar-background: 222 47% 8%;
+    --sidebar-foreground: 210 40% 96%;
+    --sidebar-primary: 265 89% 68%;
+    --sidebar-primary-foreground: 222 47% 7%;
+    --sidebar-accent: 222 30% 15%;
+    --sidebar-accent-foreground: 210 40% 96%;
+    --sidebar-border: 222 30% 18%;
+    --sidebar-ring: 265 89% 68%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel', 'Noto Sans KR', serif;
+  }
+}
+
+@layer components {
+  /* Glow Effects */
+  .glow-purple {
+    box-shadow: var(--shadow-glow-purple);
+  }
+
+  .glow-gold {
+    box-shadow: var(--shadow-glow-gold);
+  }
+
+  .glow-emerald {
+    box-shadow: var(--shadow-glow-emerald);
+  }
+
+  /* Gradient Text */
+  .text-gradient-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-purple {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Card Hover Effect */
+  .card-fantasy {
+    background: var(--gradient-card);
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-card);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-fantasy:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-card-hover);
+    border-color: hsl(var(--primary) / 0.5);
+  }
+
+  /* Magic Button */
+  .btn-magic {
+    background: var(--gradient-primary);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .btn-magic::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent, hsl(0 0% 100% / 0.2), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+  }
+
+  .btn-magic:hover::before {
+    transform: translateX(100%);
+  }
+
+  .btn-magic:hover {
+    box-shadow: var(--shadow-glow-purple);
+    transform: translateY(-2px);
+  }
+
+  /* Gold Button */
+  .btn-gold {
+    background: var(--gradient-gold);
+    color: hsl(var(--navy-deep));
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .btn-gold:hover {
+    box-shadow: var(--shadow-glow-gold);
+    transform: translateY(-2px);
+  }
+
+  /* Floating Animation */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Shimmer Animation */
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(var(--gold) / 0.3),
+      transparent
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  /* Pulse Glow */
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.4);
+    }
+    50% {
+      box-shadow: 0 0 40px hsl(var(--primary) / 0.6);
+    }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.5);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary));
+  }
+}
+
+@layer utilities {
+  .bg-gradient-fantasy {
+    background: radial-gradient(ellipse at top, hsl(265 50% 95%), hsl(0 0% 100%));
+  }
+
+  .dark .bg-gradient-fantasy {
+    background: radial-gradient(ellipse at top, hsl(265 50% 15%), hsl(222 47% 7%));
+  }
+
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .border-glow {
+    border: 1px solid hsl(var(--primary) / 0.3);
+  }
+}
